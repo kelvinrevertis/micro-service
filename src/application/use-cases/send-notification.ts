@@ -26,10 +26,10 @@ export class SendNotification {
       category,
     });
 
+    await this.notificationsRepository.create(notification);
+
     return {
       notification,
     };
   }
 }
-
-//56:12
