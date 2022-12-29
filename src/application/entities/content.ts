@@ -1,21 +1,21 @@
-export class Content{
-    private readonly content: string;
+export class Content {
+  private readonly content: string;
 
-    get value(): string{
-        return this.content;
+  get value(): string {
+    return this.content;
+  }
+
+  private validateContentLength(content: string): boolean {
+    return content.length >= 5 && content.length <= 240;
+  }
+
+  constructor(content: string) {
+    const isContentLenghValid = this.validateContentLength(content);
+
+    if (!isContentLenghValid) {
+      throw new Error('Content Length error.');
     }
 
-    private validateContentLength(content: string): boolean{
-        return content.length >= 5 && content.length <= 240;
-    }
-
-    constructor(content: string){
-        const isContentLenghValid = this.validateContentLength(content);
-        
-        if(!isContentLenghValid){
-            throw new Error('Content Length error.')
-        }
-        
-        this.content = content
-    }
+    this.content = content;
+  }
 }
