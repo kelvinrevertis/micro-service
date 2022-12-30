@@ -1,3 +1,4 @@
+import { Injectable } from '@nestjs/common/decorators';
 import { Content } from '../entities/content';
 import { Notification } from '../entities/notification';
 import { NotificationsRepository } from '../repositories/notifications-repository';
@@ -12,6 +13,7 @@ interface SendNotificationResponse {
   notification: Notification;
 }
 
+@Injectable()
 export class SendNotification {
   constructor(private notificationsRepository: NotificationsRepository) {}
 
@@ -33,3 +35,5 @@ export class SendNotification {
     };
   }
 }
+
+//1:26:00
